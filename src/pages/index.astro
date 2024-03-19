@@ -1,5 +1,16 @@
 ---
-import Confetti from "../confetti";
+import { db } from "astro:db";
+
+import { Channel, eq } from "astro:db";
+import Confetti from "../components/confetti";
+import ResetButton from "../components/reset-button";
+
+const channel = (
+  await db
+    .select()
+    .from(Channel)
+    .where(eq(Channel.name, "squad-special-forces"))
+)[0];
 ---
 
 <html lang="en">
@@ -8,20 +19,32 @@ import Confetti from "../confetti";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>0 Days Without a Slack Bug</title>
+    <title>{channel?.daysSinceBug} Days Without a Slack Bug</title>
     <script></script>
   </head>
-  <body class="bg-black">
+  <body
+    class="bg-black text-gray-300 bg-gradient-to-br from-slate-950 to-slate-800 h-screen flex items-center justify-center"
+  >
     <Confetti client:load />
-    <div
-      class="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-slate-950 to-slate-800 gap-4"
-    >
-      <h1 class="text-gray-200">
-        Days without a slack bug in <code class="bg-gray-700 rounded-md px-1"
-          >squad-special-forces</code
-        >:
-      </h1>
-      <p class="text-5xl text-gray-200">0</p>
-    </div>
+    <main class="max-w-md w-full grid grid-cols-2 px-2 gap-3">
+      <section
+        class="col-span-2 bg-gray-800/40 border border-gray-700/40 rounded-lg p-4 flex items-center justify-between"
+      >
+        <h1 class="font-mono">#{channel?.name}</h1>
+        <ResetButton client:load />
+      </section>
+      <section
+        class="col-span-1 bg-gray-800/40 border border-gray-700/40 rounded-lg p-4"
+      >
+        <h2 class="text-gray-400 pb-2">Days Since Bug:</h2>
+        <p class="text-4xl">{channel?.daysSinceBug}</p>
+      </section>
+      <section
+        class="col-span-1 bg-gray-800/40 border border-gray-700/40 rounded-lg p-4"
+      >
+        <h2 class="text-gray-400 pb-2">Most days since bug:</h2>
+        <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
+      </section>
+    </main>
   </body>
 </html>
