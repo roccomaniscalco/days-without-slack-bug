@@ -17,9 +17,9 @@ dependencies:
   astro:
     specifier: ^4.5.6
     version: 4.5.6(typescript@5.4.2)
-  solid-confetti-explosion:
-    specifier: ^1.1.8
-    version: 1.1.8(solid-js@1.8.15)
+  canvas-confetti:
+    specifier: ^1.9.2
+    version: 1.9.2
   solid-js:
     specifier: ^1.8.15
     version: 1.8.15
@@ -29,6 +29,11 @@ dependencies:
   typescript:
     specifier: ^5.4.2
     version: 5.4.2
+
+devDependencies:
+  '@types/canvas-confetti':
+    specifier: ^1.6.4
+    version: 1.6.4
 
 packages:
 
@@ -843,6 +848,10 @@ packages:
       '@babel/types': 7.24.0
     dev: false
 
+  /@types/canvas-confetti@1.6.4:
+    resolution: {integrity: sha512-fNyZ/Fdw/Y92X0vv7B+BD6ysHL4xVU5dJcgzgxLdGbn8O3PezZNIJpml44lKM0nsGur+o/6+NZbZeNTt00U1uA==}
+    dev: true
+
   /@types/debug@4.1.12:
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
     dependencies:
@@ -1313,6 +1322,10 @@ packages:
 
   /caniuse-lite@1.0.30001599:
     resolution: {integrity: sha512-LRAQHZ4yT1+f9LemSMeqdMpMxZcc4RMWdj4tiFe3G8tNkWK+E58g+/tzotb5cU6TbcVJLr4fySiAW7XmxQvZQA==}
+    dev: false
+
+  /canvas-confetti@1.9.2:
+    resolution: {integrity: sha512-6Xi7aHHzKwxZsem4mCKoqP6YwUG3HamaHHAlz1hTNQPCqXhARFpSXnkC9TWlahHY5CG6hSL5XexNjxK8irVErg==}
     dev: false
 
   /ccount@2.0.1:
@@ -3446,14 +3459,6 @@ packages:
 
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
-    dev: false
-
-  /solid-confetti-explosion@1.1.8(solid-js@1.8.15):
-    resolution: {integrity: sha512-12NF74moHhy6sUts4+5+a5dz0+NLtBx9rViFmChfJYb6xaKPRgbs+zTv/9jT1rNRa5ZhEgEiuUCzoBdcBE64/Q==}
-    peerDependencies:
-      solid-js: ^1.6.9
-    dependencies:
-      solid-js: 1.8.15
     dev: false
 
   /solid-js@1.8.15:

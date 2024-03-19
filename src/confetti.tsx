@@ -1,5 +1,16 @@
-import { ConfettiExplosion } from "solid-confetti-explosion";
+import confetti from "canvas-confetti";
+import { onMount } from "solid-js";
 
 export default function Confetti() {
-  return <ConfettiExplosion class="mx-auto" />;
+  onMount(() =>
+    confetti({
+      origin: {
+        y: 0.5,
+        x: 0.5,
+      },
+      spread: 360,
+      startVelocity: 30,
+    })
+  );
+  return null;
 }
