@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/increment-days-since-bug",
+      "schedule": "0 0 * * *"
+    }
+  ]
+}
