@@ -34,6 +34,6 @@ export const GET: APIRoute = async () => {
     JSON.stringify({
       daysSinceBug: newDaysSinceBug,
     }),
-    { status: 200 }
+    { status: 200 },
   );
 };

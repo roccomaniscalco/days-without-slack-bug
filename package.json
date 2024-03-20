@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build --remote",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@astrojs/check": "^0.5.9",
@@ -26,6 +27,9 @@
     "typescript": "^5.4.2"
   },
   "devDependencies": {
-    "@types/canvas-confetti": "^1.6.4"
+    "@types/canvas-confetti": "^1.6.4",
+    "prettier": "^3.2.5",
+    "prettier-plugin-astro": "^0.13.0",
+    "prettier-plugin-tailwindcss": "^0.5.12"
   }
 }

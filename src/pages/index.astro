@@ -21,12 +21,12 @@ const channel = (
     <title>{channel?.daysSinceBug} Day(s) Since Bug</title>
   </head>
   <body
-    class="bg-black text-slate-300 bg-gradient-to-br from-slate-950 to-slate-800 h-screen flex flex-col items-center justify-center"
+    class="flex h-screen flex-col items-center justify-center bg-black bg-gradient-to-br from-slate-950 to-slate-800 text-slate-300"
   >
     <Confetti client:load />
-    <main class="max-w-md w-full grid grid-cols-2 px-2 gap-3 pb-9">
+    <main class="grid w-full max-w-md grid-cols-2 gap-3 px-2 pb-9">
       <section
-        class="col-span-2 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
+        class="col-span-2 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
       >
         <div class="flex items-center gap-2">
           <HiSolidHashtag stroke-width={1} class="text-slate-500" />
@@ -34,18 +34,18 @@ const channel = (
         </div>
       </section>
       <section
-        class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
+        class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
       >
-        <div class="flex items-center pb-3 gap-2">
+        <div class="flex items-center gap-2 pb-3">
           <HiSolidCalendar stroke-width={1} class="text-slate-500" />
           <h2>Day(s) Since Bug</h2>
         </div>
         <p class="text-4xl">{channel?.daysSinceBug}</p>
       </section>
       <section
-        class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
+        class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
       >
-        <div class="flex items-center pb-3 gap-2">
+        <div class="flex items-center gap-2 pb-3">
           <HiSolidTrophy class="text-slate-500" />
           <h2>Highscore</h2>
         </div>

@@ -6,7 +6,7 @@ export default function Confetti() {
     confetti({
       spread: 360,
       startVelocity: 30,
-    })
+    }),
   );
   return null;
 }

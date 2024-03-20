@@ -8,23 +8,23 @@ export default function ConfirmResetDialog() {
   return (
     <AlertDialog.Root>
       <AlertDialog.Portal>
-        <div class="absolute inset-0 flex items-center justify-center max-w-lg mx-auto px-4">
+        <div class="absolute inset-0 mx-auto flex max-w-lg items-center justify-center px-4">
           <AlertDialog.Content
-            class="bg-slate-800/40 border border-slate-700/40 rounded-lg p-6 backdrop-blur-xl shadow-xl"
+            class="rounded-lg border border-slate-700/40 bg-slate-800/40 p-6 shadow-xl backdrop-blur-xl"
             onOpenAutoFocus={(e) => {
               e.preventDefault();
               dateInputRef?.focus();
             }}
           >
-            <div class="flex items-start gap-4 justify-between">
-              <AlertDialog.Title class="text-lg pb-8">
+            <div class="flex items-start justify-between gap-4">
+              <AlertDialog.Title class="pb-8 text-lg">
                 Are you sure you want to reset the counter?
               </AlertDialog.Title>
-              <AlertDialog.CloseButton class="rounded-md font-semibold focus:ring-2 ring-purple-400 outline-none p-2">
+              <AlertDialog.CloseButton class="rounded-md p-2 font-semibold outline-none ring-purple-400 focus:ring-2">
                 <HiSolidXMark stroke-width={1} />
               </AlertDialog.CloseButton>
             </div>
-            <AlertDialog.Description class="text-sm text-slate-400 pb-16">
+            <AlertDialog.Description class="pb-16 text-sm text-slate-400">
               Enter today's date below to confirm that a slack bug has occurred
               in{" "}
               <span class="font-mono text-slate-300">
@@ -36,7 +36,7 @@ export default function ConfirmResetDialog() {
           </AlertDialog.Content>
         </div>
       </AlertDialog.Portal>
-      <AlertDialog.Trigger class="bg-slate-700/70 rounded-md font-semibold hover:bg-slate-700/60 focus:ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-900 outline-none px-4 py-2">
+      <AlertDialog.Trigger class="rounded-md bg-slate-700/70 px-4 py-2 font-semibold outline-none ring-purple-400 ring-offset-2 ring-offset-slate-900 hover:bg-slate-700/60 focus:ring-2">
         A Bug Happened :(
       </AlertDialog.Trigger>
     </AlertDialog.Root>
@@ -81,14 +81,14 @@ function ResetForm(props: ResetFormProps) {
       >
         <TextField.Input
           ref={props.ref}
-          class="bg-slate-900/70 border border-slate-700/70 rounded-md focus:ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-900 outline-none px-4 py-2 placeholder:text-slate-600 w-full"
+          class="w-full rounded-md border border-slate-700/70 bg-slate-900/70 px-4 py-2 outline-none ring-purple-400 ring-offset-2 ring-offset-slate-900 placeholder:text-slate-600 focus:ring-2"
           placeholder={today}
           maxLength={today.length}
           autocomplete="off"
         />
       </TextField.Root>
       <Button.Root
-        class="text-white bg-purple-600 rounded-md font-semibold hover:bg-purple-700 focus:ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-900 outline-none px-4 py-2 flex items-center gap-2 group kb-invalid:bg-slate-700 kb-invalid:text-slate-400 kb-invalid:cursor-not-allowed"
+        class="group flex items-center gap-2 rounded-md bg-purple-600 px-4 py-2 font-semibold text-white outline-none ring-purple-400 ring-offset-2 ring-offset-slate-900 hover:bg-purple-700 focus:ring-2 kb-invalid:cursor-not-allowed kb-invalid:bg-slate-700 kb-invalid:text-slate-400"
         type="submit"
         disabled={isSubmitting() || !isDateValid()}
         data-invalid={!isDateValid() ? "true" : undefined}
