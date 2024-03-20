@@ -1,9 +1,9 @@
 export default function ResetButton() {
   async function resetDaysSinceBug() {
-    await fetch("http://localhost:4321/api/reset-days-since-bug", {
+    await fetch(`${location.origin}/api/reset-days-since-bug`, {
       method: "POST",
     });
-    location.reload()
+    location.reload();
   }
 
   return (
