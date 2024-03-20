@@ -1,7 +1,7 @@
 import type { APIRoute } from "astro";
 import { Channel, db, eq } from "astro:db";
 
-export const POST: APIRoute = async () => {
+export const GET: APIRoute = async () => {
   const channel = (
     await db
       .select({
