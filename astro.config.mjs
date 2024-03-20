@@ -12,7 +12,15 @@ export default defineConfig({
     db(),
     tailwind(),
     solidJs(),
-    icon({ include: { heroicons: ["trophy-16-solid", "calendar-days-16-solid"] } }),
+    icon({
+      include: {
+        heroicons: [
+          "trophy-16-solid",
+          "calendar-days-16-solid",
+          "hashtag-16-solid",
+        ],
+      },
+    }),
   ],
   output: "server",
   adapter: vercel(),

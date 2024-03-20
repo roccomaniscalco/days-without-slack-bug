@@ -23,21 +23,26 @@ const channel = (
     <title>{channel?.daysSinceBug} Day(s) Since Bug</title>
   </head>
   <body
-    class="bg-black text-slate-300 bg-gradient-to-br from-slate-950 to-slate-800 h-screen flex items-center justify-center"
+    class="bg-black text-slate-300 bg-gradient-to-br from-slate-950 to-slate-800 h-screen flex flex-col items-center justify-center"
   >
     <Confetti client:load />
-    <main class="max-w-md w-full grid grid-cols-2 px-2 gap-3">
+    <main class="max-w-md w-full grid grid-cols-2 px-2 gap-3 pb-9">
       <section
-        class="col-span-2 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4 flex items-center justify-between"
+        class="col-span-2 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
-        <h1 class="font-mono">#{channel?.name}</h1>
-        <ResetButton client:load />
+        <div class="flex items-center gap-2">
+          <Icon name="heroicons:hashtag-16-solid" class="text-slate-500" />
+          <h1 class="font-mono">{channel?.name}</h1>
+        </div>
       </section>
       <section
         class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
-        <div class="flex items-center pb-2 gap-2">
-          <Icon name="heroicons:calendar-days-16-solid" class="text-slate-500" />
+        <div class="flex items-center pb-3 gap-2">
+          <Icon
+            name="heroicons:calendar-days-16-solid"
+            class="text-slate-500"
+          />
           <h2>Day(s) Since Bug</h2>
         </div>
         <p class="text-4xl">{channel?.daysSinceBug}</p>
@@ -45,12 +50,13 @@ const channel = (
       <section
         class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
-        <div class="flex items-center pb-2 gap-2">
+        <div class="flex items-center pb-3 gap-2">
           <Icon name="heroicons:trophy-16-solid" class="text-slate-500" />
           <h2>Highscore</h2>
         </div>
         <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
       </section>
     </main>
+    <ResetButton client:load />
   </body>
 </html>
