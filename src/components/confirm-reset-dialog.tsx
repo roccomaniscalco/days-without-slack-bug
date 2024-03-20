@@ -1,5 +1,5 @@
 import { AlertDialog, TextField, Button } from "@kobalte/core";
-import { HiSolidArrowPath } from "solid-icons/hi";
+import { HiSolidArrowPath, HiSolidXMark } from "solid-icons/hi";
 import { createSignal, type Ref } from "solid-js";
 
 export default function ConfirmResetDialog() {
@@ -16,15 +16,15 @@ export default function ConfirmResetDialog() {
               dateInputRef?.focus();
             }}
           >
-            <div class="flex items-start gap-4">
-              <AlertDialog.Title class="text-lg pb-6">
-                Are you sure you want to reset the "day(s) since bug" counter?
+            <div class="flex items-start gap-4 justify-between">
+              <AlertDialog.Title class="text-lg pb-8">
+                Are you sure you want to reset the counter?
               </AlertDialog.Title>
-              <AlertDialog.CloseButton class="rounded-md font-semibold focus:ring-2 ring-purple-400 outline-none px-2 py-1">
-                X
+              <AlertDialog.CloseButton class="rounded-md font-semibold focus:ring-2 ring-purple-400 outline-none p-2">
+                <HiSolidXMark stroke-width={1} />
               </AlertDialog.CloseButton>
             </div>
-            <AlertDialog.Description class="text-sm text-slate-400 pb-12">
+            <AlertDialog.Description class="text-sm text-slate-400 pb-16">
               Enter today's date below to confirm that a slack bug has occurred
               in{" "}
               <span class="font-mono text-slate-300">
@@ -86,9 +86,6 @@ function ResetForm(props: ResetFormProps) {
           maxLength={today.length}
           autocomplete="off"
         />
-        <TextField.ErrorMessage>
-          Date does not match {today}
-        </TextField.ErrorMessage>
       </TextField.Root>
       <Button.Root
         class="text-white bg-purple-600 rounded-md font-semibold hover:bg-purple-700 focus:ring-2 ring-purple-400 ring-offset-2 ring-offset-slate-900 outline-none px-4 py-2 flex items-center gap-2 group kb-invalid:bg-slate-700 kb-invalid:text-slate-400 kb-invalid:cursor-not-allowed"
