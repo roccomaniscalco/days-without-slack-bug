@@ -1,48 +1,7 @@
 ---
-import { Channel, db, eq } from "astro:db";
-import { HiSolidCalendar, HiSolidHashtag, HiSolidTrophy } from "solid-icons/hi";
-import "../global.css";
-import Confetti from "./_confetti";
-import ConfirmResetDialog from "./_confirm-reset-dialog";
-import SharedLayout from "../layouts/shared-layout.astro";
-
-const channel = (
-  await db
-    .select()
-    .from(Channel)
-    .where(eq(Channel.name, "squad-special-forces"))
-)[0];
+import SharedLayout from "./_shared-layout.astro";
 ---
 
-<SharedLayout title={`${channel?.daysSinceBug} Day(s) Since Bug`}>
-  <Confetti client:load />
-  <main class="grid w-full max-w-md grid-cols-2 gap-3 px-2 pb-9">
-    <section
-      class="col-span-2 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-    >
-      <div class="flex items-center gap-3">
-        <HiSolidHashtag stroke-width={1} class="text-slate-500" />
-        <h1 class="font-mono">{channel?.name}</h1>
-      </div>
-    </section>
-    <section
-      class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-    >
-      <div class="flex items-center gap-3 pb-4">
-        <HiSolidCalendar stroke-width={1} class="text-slate-500" />
-        <h2>Day(s) Since Bug</h2>
-      </div>
-      <p class="text-4xl">{channel?.daysSinceBug}</p>
-    </section>
-    <section
-      class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-    >
-      <div class="flex items-center gap-3 pb-4">
-        <HiSolidTrophy class="text-slate-500" />
-        <h2>Highscore</h2>
-      </div>
-      <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
-    </section>
-  </main>
-  <ConfirmResetDialog client:load />
+<SharedLayout>
+
 </SharedLayout>
