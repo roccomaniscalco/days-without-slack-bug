@@ -4,6 +4,7 @@ import { HiSolidCalendar, HiSolidHashtag, HiSolidTrophy } from "solid-icons/hi";
 import "../global.css";
 import Confetti from "./_confetti";
 import ConfirmResetDialog from "./_confirm-reset-dialog";
+import SharedLayout from "../layouts/shared-layout.astro";
 
 const channel = (
   await db
@@ -13,46 +14,35 @@ const channel = (
 )[0];
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{channel?.daysSinceBug} Day(s) Since Bug</title>
-  </head>
-  <body
-    class="flex h-screen flex-col items-center justify-center bg-black bg-gradient-to-br from-slate-950 to-slate-800 text-slate-300"
-  >
-    <Confetti client:load />
-    <main class="grid w-full max-w-md grid-cols-2 gap-3 px-2 pb-9">
-      <section
-        class="col-span-2 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-      >
-        <div class="flex items-center gap-3">
-          <HiSolidHashtag stroke-width={1} class="text-slate-500" />
-          <h1 class="font-mono">{channel?.name}</h1>
-        </div>
-      </section>
-      <section
-        class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-      >
-        <div class="flex items-center gap-3 pb-4">
-          <HiSolidCalendar stroke-width={1} class="text-slate-500" />
-          <h2>Day(s) Since Bug</h2>
-        </div>
-        <p class="text-4xl">{channel?.daysSinceBug}</p>
-      </section>
-      <section
-        class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
-      >
-        <div class="flex items-center gap-3 pb-4">
-          <HiSolidTrophy class="text-slate-500" />
-          <h2>Highscore</h2>
-        </div>
-        <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
-      </section>
-    </main>
-    <ConfirmResetDialog client:load />
-  </body>
-</html>
+<SharedLayout title={`${channel?.daysSinceBug} Day(s) Since Bug`}>
+  <Confetti client:load />
+  <main class="grid w-full max-w-md grid-cols-2 gap-3 px-2 pb-9">
+    <section
+      class="col-span-2 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
+    >
+      <div class="flex items-center gap-3">
+        <HiSolidHashtag stroke-width={1} class="text-slate-500" />
+        <h1 class="font-mono">{channel?.name}</h1>
+      </div>
+    </section>
+    <section
+      class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
+    >
+      <div class="flex items-center gap-3 pb-4">
+        <HiSolidCalendar stroke-width={1} class="text-slate-500" />
+        <h2>Day(s) Since Bug</h2>
+      </div>
+      <p class="text-4xl">{channel?.daysSinceBug}</p>
+    </section>
+    <section
+      class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
+    >
+      <div class="flex items-center gap-3 pb-4">
+        <HiSolidTrophy class="text-slate-500" />
+        <h2>Highscore</h2>
+      </div>
+      <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
+    </section>
+  </main>
+  <ConfirmResetDialog client:load />
+</SharedLayout>
