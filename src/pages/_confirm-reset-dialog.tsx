@@ -36,8 +36,9 @@ export default function ConfirmResetDialog() {
           </AlertDialog.Content>
         </div>
       </AlertDialog.Portal>
-      <AlertDialog.Trigger class="rounded-md bg-slate-700/70 px-4 py-2 font-semibold outline-none ring-purple-400 ring-offset-2 ring-offset-slate-900 hover:bg-slate-700/60 focus:ring-2">
-        A Bug Happened :(
+      <AlertDialog.Trigger class="flex items-center gap-2 rounded-md bg-purple-600 px-4 py-2 font-semibold text-white outline-none ring-purple-400 ring-offset-2 ring-offset-slate-900 hover:bg-purple-700 focus:ring-2">
+        Reset Counter
+        <HiSolidArrowPath stroke-width={1} />
       </AlertDialog.Trigger>
     </AlertDialog.Root>
   );

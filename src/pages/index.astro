@@ -1,8 +1,8 @@
 ---
 import { Channel, db, eq } from "astro:db";
 import { HiSolidCalendar, HiSolidHashtag, HiSolidTrophy } from "solid-icons/hi";
-import Confetti from "../components/confetti";
-import ConfirmResetDialog from "../components/confirm-reset-dialog";
+import Confetti from "./_confetti";
+import ConfirmResetDialog from "./_confirm-reset-dialog";
 
 const channel = (
   await db
