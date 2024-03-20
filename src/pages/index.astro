@@ -1,10 +1,8 @@
 ---
-import { db } from "astro:db";
-
-import { Channel, eq } from "astro:db";
+import { Channel, db, eq } from "astro:db";
+import { HiSolidCalendar, HiSolidHashtag, HiSolidTrophy } from "solid-icons/hi";
 import Confetti from "../components/confetti";
-import ResetButton from "../components/reset-button";
-import { Icon } from "astro-icon/components";
+import ConfirmResetDialog from "../components/confirm-reset-dialog";
 
 const channel = (
   await db
@@ -31,7 +29,7 @@ const channel = (
         class="col-span-2 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
         <div class="flex items-center gap-2">
-          <Icon name="heroicons:hashtag-16-solid" class="text-slate-500" />
+          <HiSolidHashtag stroke-width={1} class="text-slate-500" />
           <h1 class="font-mono">{channel?.name}</h1>
         </div>
       </section>
@@ -39,10 +37,7 @@ const channel = (
         class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
         <div class="flex items-center pb-3 gap-2">
-          <Icon
-            name="heroicons:calendar-days-16-solid"
-            class="text-slate-500"
-          />
+          <HiSolidCalendar stroke-width={1} class="text-slate-500" />
           <h2>Day(s) Since Bug</h2>
         </div>
         <p class="text-4xl">{channel?.daysSinceBug}</p>
@@ -51,12 +46,12 @@ const channel = (
         class="col-span-1 bg-slate-800/40 border border-slate-700/40 rounded-lg p-4"
       >
         <div class="flex items-center pb-3 gap-2">
-          <Icon name="heroicons:trophy-16-solid" class="text-slate-500" />
+          <HiSolidTrophy class="text-slate-500" />
           <h2>Highscore</h2>
         </div>
         <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
       </section>
     </main>
-    <ResetButton client:load />
+    <ConfirmResetDialog client:load />
   </body>
 </html>
