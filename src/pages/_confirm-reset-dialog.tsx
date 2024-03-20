@@ -10,7 +10,7 @@ export default function ConfirmResetDialog() {
       <AlertDialog.Portal>
         <div class="absolute inset-0 mx-auto flex max-w-lg items-center justify-center px-4">
           <AlertDialog.Content
-            class="rounded-lg border border-slate-700/40 bg-slate-800/40 p-6 shadow-xl backdrop-blur-xl"
+            class="animate-slide-up rounded-lg border border-slate-700/40 bg-slate-800/40 p-6 shadow-xl backdrop-blur-xl"
             onOpenAutoFocus={(e) => {
               e.preventDefault();
               dateInputRef?.focus();
