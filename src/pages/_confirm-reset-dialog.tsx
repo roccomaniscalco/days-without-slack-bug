@@ -17,7 +17,7 @@ export default function ConfirmResetDialog() {
             }}
           >
             <div class="flex items-start justify-between gap-4">
-              <AlertDialog.Title class="pb-8 text-lg">
+              <AlertDialog.Title class="pb-6 text-lg">
                 Are you sure you want to reset the counter?
               </AlertDialog.Title>
               <AlertDialog.CloseButton class="rounded-md p-2 font-semibold outline-none ring-purple-400 focus:ring-2">
