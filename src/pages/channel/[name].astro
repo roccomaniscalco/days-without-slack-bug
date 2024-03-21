@@ -13,10 +13,7 @@ if (!name) {
 }
 
 const channel = (
-  await db
-    .select()
-    .from(Channel)
-    .where(eq(Channel.name, name))
+  await db.select().from(Channel).where(eq(Channel.name, name))
 )[0];
 
 if (!channel) {
@@ -26,7 +23,7 @@ if (!channel) {
 
 <SharedLayout title={`${channel?.daysSinceBug} Day(s) Since Bug`}>
   <Confetti client:load />
-  <main class="grid w-full max-w-md grid-cols-2 gap-3 px-2 pb-9">
+  <article class="grid grid-cols-2 gap-3">
     <section
       class="col-span-2 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
     >
@@ -53,6 +50,8 @@ if (!channel) {
       </div>
       <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
     </section>
-  </main>
-  <ConfirmResetDialog client:load />
+  </article>
+  <div class="col-span-2 flex justify-center pt-10">
+    <ConfirmResetDialog client:load />
+  </div>
 </SharedLayout>

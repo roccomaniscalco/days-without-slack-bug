@@ -24,13 +24,9 @@ export default function ConfirmResetDialog() {
                 <HiSolidXMark stroke-width={1} />
               </AlertDialog.CloseButton>
             </div>
-            <AlertDialog.Description class="pb-16 text-sm text-slate-400">
+            <AlertDialog.Description class="pb-12">
               Enter today's date below to confirm that a slack bug has occurred
-              in{" "}
-              <span class="font-mono text-slate-300">
-                #squad-special-forces
-              </span>
-              .
+              in <code>#squad-special-forces</code>.
             </AlertDialog.Description>
             <ResetForm ref={dateInputRef!} />
           </AlertDialog.Content>
