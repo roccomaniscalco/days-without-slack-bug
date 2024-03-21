@@ -1,0 +1,13 @@
+---
+import SharedLayout from "./_shared-layout.astro";
+---
+
+<SharedLayout>
+  <div class="flex w-full flex-col items-center justify-center gap-4">
+    <p class="text-4xl font-bold">404</p>
+    <p class="text-xl">
+      <code class="rounded bg-slate-800/70 px-2 py-1">{Astro.url.pathname}</code
+      > does not exist
+    </p>
+  </div>
+</SharedLayout>
