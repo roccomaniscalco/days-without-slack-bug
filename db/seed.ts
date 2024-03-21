@@ -8,5 +8,11 @@ export default async function () {
       daysSinceBug: 0,
       highestDaysSinceBug: 0,
     },
+    {
+      id: 2,
+      name: "another-channel",
+      daysSinceBug: 3,
+      highestDaysSinceBug: 5,
+    },
   ]);
 }
