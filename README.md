@@ -2,8 +2,9 @@
 
 Tired of Slack huddle audio bugs? This won't fix them. It just makes them more fun.
 
-## Stack
+## V.A.T.S. Stack
 
-- Astro: Templating, Endpoints, DB
-- Solid: Client Interactivity
 - Vercel: Hosting, Cron Jobs
+- Astro: Templating, Endpoints, DB
+- Tailwind: Styling
+- Solid: Client Interactivity
