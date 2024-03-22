@@ -2,7 +2,10 @@ import { AlertDialog, TextField, Button } from "@kobalte/core";
 import { HiSolidArrowPath, HiSolidXMark } from "solid-icons/hi";
 import { createSignal, type Ref } from "solid-js";
 
-export default function ConfirmResetDialog() {
+type ConfirmResetDialogProps = {
+  channelName: string;
+};
+export default function ConfirmResetDialog(props: ConfirmResetDialogProps) {
   let dateInputRef: HTMLInputElement | undefined;
 
   return (
@@ -26,9 +29,9 @@ export default function ConfirmResetDialog() {
             </div>
             <AlertDialog.Description class="pb-12">
               Enter today's date below to confirm that a slack bug has occurred
-              in <code>#squad-special-forces</code>.
+              in <code>#{props.channelName}</code>.
             </AlertDialog.Description>
-            <ResetForm ref={dateInputRef!} />
+            <ResetForm ref={dateInputRef!} channelName={props.channelName} />
           </AlertDialog.Content>
         </div>
       </AlertDialog.Portal>
@@ -42,6 +45,7 @@ export default function ConfirmResetDialog() {
 
 type ResetFormProps = {
   ref: Ref<HTMLInputElement>;
+  channelName: string;
 };
 function ResetForm(props: ResetFormProps) {
   const [dateValue, setDateValue] = createSignal("");
@@ -58,6 +62,7 @@ function ResetForm(props: ResetFormProps) {
     setIsSubmitting(true);
     await fetch(`${location.origin}/api/reset-days-since-bug`, {
       method: "POST",
+      body: JSON.stringify({ channelName: props.channelName }),
     });
     location.reload();
   };

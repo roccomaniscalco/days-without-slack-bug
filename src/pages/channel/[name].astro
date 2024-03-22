@@ -21,7 +21,7 @@ if (!channel) {
 }
 ---
 
-<SharedLayout title={`${channel?.daysSinceBug} Day(s) Since Bug`}>
+<SharedLayout title={`${channel.daysSinceBug} Day(s) Since Bug`}>
   <Confetti client:load />
   <article class="grid grid-cols-2 gap-3">
     <section
@@ -29,7 +29,7 @@ if (!channel) {
     >
       <div class="flex items-center gap-3">
         <HiSolidHashtag stroke-width={1} class="text-slate-500" />
-        <h1 class="font-mono">{channel?.name}</h1>
+        <h1 class="font-mono">{channel.name}</h1>
       </div>
     </section>
     <section
@@ -39,7 +39,7 @@ if (!channel) {
         <HiSolidCalendar stroke-width={1} class="text-slate-500" />
         <h2>Day(s) Since Bug</h2>
       </div>
-      <p class="text-4xl">{channel?.daysSinceBug}</p>
+      <p class="text-4xl">{channel.daysSinceBug}</p>
     </section>
     <section
       class="col-span-1 rounded-lg border border-slate-700/40 bg-slate-800/40 p-4"
@@ -48,10 +48,10 @@ if (!channel) {
         <HiSolidTrophy class="text-slate-500" />
         <h2>Highscore</h2>
       </div>
-      <p class="text-4xl">{channel?.highestDaysSinceBug}</p>
+      <p class="text-4xl">{channel.highestDaysSinceBug}</p>
     </section>
   </article>
   <div class="col-span-2 flex justify-center pt-10">
-    <ConfirmResetDialog client:load />
+    <ConfirmResetDialog client:load channelName={channel.name} />
   </div>
 </SharedLayout>

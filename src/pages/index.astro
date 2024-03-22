@@ -24,7 +24,7 @@ const channels = await db.select().from(Channel).limit(10);
           href={`channel/${c.name}`}
         >
           <div class="col-span-1 truncate">{c.id}</div>
-          <div class="col-span-6 truncate font-mono">{c.name}</div>
+          <div class="col-span-6 truncate font-mono">#{c.name}</div>
           <div class="col-span-3 truncate text-right">{c.daysSinceBug}</div>
           <div class="col-span-2 truncate text-right">
             {c.highestDaysSinceBug}
